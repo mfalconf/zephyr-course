@@ -32,8 +32,8 @@ Kconfig header saved to '/home/mfalconf/workspace/test_zephyr/zephyr-course/buil
 -- Use the esptool.py: /home/mfalconf/workspace/test_zephyr/deps/modules/hal/espressif/tools/esptool_py/esptool.py
 -- Image partition address: 0x1000
 -- Found gen_kobject_list: /home/mfalconf/workspace/test_zephyr/deps/zephyr/scripts/build/gen_kobject_list.py
--- Configuring done (8.8s)
--- Generating done (0.1s)
+-- Configuring done (11.3s)
+-- Generating done (0.2s)
 -- Build files have been written to: /home/mfalconf/workspace/test_zephyr/zephyr-course/build
 -- west build: building application
 [2/218] Preparing syscall dependency handling
@@ -43,8 +43,8 @@ Kconfig header saved to '/home/mfalconf/workspace/test_zephyr/zephyr-course/buil
 [218/218] Linking CXX executable zephyr/zephyr.elf
 Memory region         Used Size  Region Size  %age Used
            FLASH:      148452 B    4194048 B      3.54%
-     iram0_0_seg:       38400 B       224 KB     16.74%
-     dram0_0_seg:       20320 B       192 KB     10.34%
+     iram0_0_seg:       38144 B       224 KB     16.63%
+     dram0_0_seg:       20192 B       192 KB     10.27%
      dram1_0_seg:          0 GB        96 KB      0.00%
      irom0_0_seg:       17380 B     11456 KB      0.15%
      drom0_0_seg:         64 KB         4 MB      1.56%
