@@ -1,0 +1,6 @@
+board:
+  name: my_board
+  full_name: MY_BOARD_FROM_SCRATCH
+  vendor: y-vendor
+  socs:
+  - name: esp32

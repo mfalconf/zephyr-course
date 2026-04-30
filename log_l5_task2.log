@@ -1,0 +1,60 @@
+west build -p always -b my_board/esp32/procpu app
+-- west build: making build dir /home/mfalconf/workspace/test_zephyr/zephyr-course/build pristine
+-- west build: generating a build system
+Loading Zephyr default modules (Zephyr base).
+-- Application: /home/mfalconf/workspace/test_zephyr/zephyr-course/app
+-- CMake version: 3.28.3
+-- Found Python3: /home/mfalconf/workspace/zephyrproject/.venv/bin/python3 (found suitable version "3.12.3", minimum required is "3.10") found components: Interpreter 
+-- Cache files will be written to: /home/mfalconf/.cache/zephyr
+-- Zephyr version: 4.2.0 (/home/mfalconf/workspace/test_zephyr/deps/zephyr)
+-- Found west (found suitable version "1.5.0", minimum required is "0.14.0")
+-- Board: my_board, qualifiers: esp32/procpu
+-- ZEPHYR_TOOLCHAIN_VARIANT not set, trying to locate Zephyr SDK
+-- Found host-tools: zephyr 0.17.2 (/home/mfalconf/zephyr-sdk-0.17.2)
+-- Found toolchain: zephyr 0.17.2 (/home/mfalconf/zephyr-sdk-0.17.2)
+-- Found Dtc: /home/mfalconf/zephyr-sdk-0.17.2/sysroots/x86_64-pokysdk-linux/usr/bin/dtc (found suitable version "1.7.0", minimum required is "1.4.6") 
+-- Found BOARD.dts: /home/mfalconf/workspace/test_zephyr/zephyr-course/app/boards/my_board/my_board_procpu.dts
+-- Found devicetree overlay: /home/mfalconf/workspace/test_zephyr/zephyr-course/app/app.overlay
+-- Generated zephyr.dts: /home/mfalconf/workspace/test_zephyr/zephyr-course/build/zephyr/zephyr.dts
+-- Generated pickled edt: /home/mfalconf/workspace/test_zephyr/zephyr-course/build/zephyr/edt.pickle
+-- Generated devicetree_generated.h: /home/mfalconf/workspace/test_zephyr/zephyr-course/build/zephyr/include/generated/zephyr/devicetree_generated.h
+Parsing /home/mfalconf/workspace/test_zephyr/zephyr-course/app/Kconfig
+Loaded configuration '/home/mfalconf/workspace/test_zephyr/zephyr-course/app/boards/my_board/my_board_procpu_defconfig'
+Merged configuration '/home/mfalconf/workspace/test_zephyr/zephyr-course/app/prj.conf'
+Configuration saved to '/home/mfalconf/workspace/test_zephyr/zephyr-course/build/zephyr/.config'
+Kconfig header saved to '/home/mfalconf/workspace/test_zephyr/zephyr-course/build/zephyr/include/generated/zephyr/autoconf.h'
+-- Found GnuLd: /home/mfalconf/zephyr-sdk-0.17.2/xtensa-espressif_esp32_zephyr-elf/xtensa-espressif_esp32_zephyr-elf/bin/ld.bfd (found version "2.38") 
+-- The C compiler identification is GNU 12.2.0
+-- The CXX compiler identification is GNU 12.2.0
+-- The ASM compiler identification is GNU
+-- Found assembler: /home/mfalconf/zephyr-sdk-0.17.2/xtensa-espressif_esp32_zephyr-elf/bin/xtensa-espressif_esp32_zephyr-elf-gcc
+-- Espressif HAL path: /home/mfalconf/workspace/test_zephyr/deps/modules/hal/espressif
+-- Use the esptool.py: /home/mfalconf/workspace/test_zephyr/deps/modules/hal/espressif/tools/esptool_py/esptool.py
+-- Image partition address: 0x1000
+-- Found gen_kobject_list: /home/mfalconf/workspace/test_zephyr/deps/zephyr/scripts/build/gen_kobject_list.py
+-- Configuring done (11.2s)
+-- Generating done (0.1s)
+-- Build files have been written to: /home/mfalconf/workspace/test_zephyr/zephyr-course/build
+-- west build: building application
+[3/220] Preparing syscall dependency handling
+
+[8/220] Generating include/generated/zephyr/version.h
+-- Zephyr version: 4.2.0 (/home/mfalconf/workspace/test_zephyr/deps/zephyr), build: v4.2.0
+[220/220] Linking CXX executable zephyr/zephyr.elf
+Memory region         Used Size  Region Size  %age Used
+           FLASH:      148472 B    4194048 B      3.54%
+     iram0_0_seg:       38144 B       224 KB     16.63%
+     dram0_0_seg:       20192 B       192 KB     10.27%
+     dram1_0_seg:          0 GB        96 KB      0.00%
+     irom0_0_seg:       17400 B     11456 KB      0.15%
+     drom0_0_seg:         64 KB         4 MB      1.56%
+    rtc_iram_seg:          0 GB         8 KB      0.00%
+    rtc_slow_seg:          0 GB         8 KB      0.00%
+    rtc_data_seg:          0 GB         8 KB      0.00%
+        IDT_LIST:          0 GB         8 KB      0.00%
+Generating files from /home/mfalconf/workspace/test_zephyr/zephyr-course/build/zephyr/zephyr.elf for board: my_board
+esptool.py v4.8.1
+Creating esp32 image...
+Image has only RAM segments visible. ROM segments are hidden and SHA256 digest is not appended.
+Merged 16 ELF sections
+Successfully created esp32 image.
