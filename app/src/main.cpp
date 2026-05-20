@@ -4,6 +4,9 @@
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
 
+/* Include the specific API header */
+#include "../drivers/our_driver/our_driver.h"
+
 LOG_MODULE_REGISTER(main, LOG_LEVEL_INF);
 
 const struct device *driver = DEVICE_DT_GET(DT_NODELABEL(our_driver0));
@@ -23,38 +26,17 @@ int app_toggle_sensor() {
     }
 }
 
-namespace debug {
-    int test() {
-        const struct device *driver = DEVICE_DT_GET(DT_NODELABEL(our_driver0));
-
-        if(!device_is_ready(driver)) {
-            return -ENODEV;
-        }
-        
-        struct sensor_value val;
-        auto ret = sensor_channel_get(driver, SENSOR_CHAN_AMBIENT_TEMP, &val);
-        LOG_INF("MSG: Channel get %d", ret);
-
-        ret = sensor_sample_fetch_chan(driver, SENSOR_CHAN_AMBIENT_TEMP);
-        LOG_INF("MSG: Channel fetch %d", ret);
-        
-        return 0;
-    }
-}
-
 int main()
 {
     int ret;
     
-/*
-    if(ret = debug::test()) {
-        LOG_INF("MSG: INIT_ERROR");
-        return ret;
-    }
-*/
     if(!device_is_ready(driver)) {
         return -ENODEV;
     }
+
+    /* --- TASK 2: Call the device-specific API extension --- */
+    LOG_INF("MSG: Calling custom extension API...");
+    our_driver_set_custom_param(driver, 100);
 
     while (1) {
         if ((ret = app_toggle_sensor()) != 0) {
