@@ -4,6 +4,9 @@
 #include <sys/errno.h>
 #include <zephyr/shell/shell.h>
 
+/* Include the specific API header */
+#include "our_driver.h"
+
 static int sensor_fetch_cmd_handler(const struct shell * sh, int argc, char **argv) {
     //shell_info(sh, "Sensor->Fetch()");
 
@@ -65,10 +68,36 @@ static int sensor_info_cmd_handler(const struct shell * sh, int argc, char **arg
     return 0;
 }
 
+static int sensor_set_cmd_handler(const struct shell * sh, int argc, char **argv) {
+    //shell_info(sh, "Sensor->Set()");
+    
+    if(argc != 2) {
+        shell_error(sh, "Invalid argument count");
+        return -EFAULT; 
+    }
+
+    int val = atoi(argv[1]);
+    if (val <= 0 || val > 1000) {
+        shell_error(sh, "Invalid argument value");
+        return -EFAULT;
+    }
+
+    const struct device *dev = shell_device_get_binding("our_driver");
+    if(!dev) {
+        shell_error(sh, "Could not find device %s", "our_driver");
+        return -EFAULT;
+    }
+
+    our_driver_set_custom_param(dev, val);
+
+    return 0;
+}
+
 SHELL_STATIC_SUBCMD_SET_CREATE(sensor_sub,
     SHELL_CMD_ARG(fetch, NULL, "sensor sample fetch", sensor_fetch_cmd_handler, 1, 0),
     SHELL_CMD_ARG(read, NULL, "sensor channel get", sensor_channel_get_cmd_handler, 1, 0),
-    SHELL_CMD_ARG(info, NULL, "sensor info", sensor_info_cmd_handler, 1, 0),   
+    SHELL_CMD_ARG(info, NULL, "sensor info", sensor_info_cmd_handler, 1, 0),
+    SHELL_CMD_ARG(set, NULL, "sensor set", sensor_set_cmd_handler, 2, 0),   
     SHELL_SUBCMD_SET_END
 );
 
